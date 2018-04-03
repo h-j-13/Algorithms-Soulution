@@ -15,6 +15,7 @@
 *.pyo
 *.pyd
 
+
 # log
 *.log
 nohup.out
@@ -25,3 +26,5 @@ running.log.*
 *.json
 
 # data
+**/temp
+temp

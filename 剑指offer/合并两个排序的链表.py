@@ -14,23 +14,23 @@ class Solution:
     """
 
     # 返回合并后列表
-    def Merge(self, pHead1, pHead2):
+    def Merge(self, Head1, Head2):
         result_cur = ListNode(-1)
         cur = result_cur
 
-        while pHead1 is not None and pHead2 is not None:
-            if pHead1.val >= pHead2.val:
-                cur.next = pHead2
-                pHead2 = pHead2.next
+        while Head1 is not None and Head2 is not None:
+            if Head1.val >= Head2.val:
+                cur.next = Head2
+                Head2 = Head2.next
             else:
-                cur.next = pHead1
-                pHead1 = pHead1.next
+                cur.next = Head1
+                Head1 = Head1.next
             cur = cur.next
 
-        if pHead1 is not None:
-            cur.next = pHead1
+        if Head1 is not None:
+            cur.next = Head1
         else:
-            cur.next = pHead2
+            cur.next = Head2
 
         return result_cur.next
 
