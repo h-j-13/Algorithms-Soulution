@@ -26,4 +26,15 @@ class Solution:
 
     # s, pattern都是字符串
     def match(self, s, pattern):
-        # dp
+        if not s and not pattern:   # 同时消耗完模式串与字符串 -> 真
+            return True
+        if s and not pattern:   # 消耗完了模式串但字符串还有剩余 -> 假
+            return False
+        if len(pattern) > 1 and pattern[1] == '*':  # 当模式中的第二个字符是“ * ”时
+            if s and (s[0] == pattern[0] or pattern[0] == '.'):
+                return self.match(s, pattern[2:]) or self.match(s[1:], pattern[2:]) or self.match(s[1:], pattern)
+            else:
+                return self.match(s, pattern[2:])   # 字符串第一个字符跟模式第一个字符不匹配，则模式后移2个字符
+        if s and (pattern[0] == '.' or pattern[0] == s[0]): # 当模式中的第二个字符不是“ * ”时
+            return self.match(s[1:], pattern[1:])   # 均后移一位
+        return False
