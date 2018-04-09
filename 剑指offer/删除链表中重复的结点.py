@@ -7,40 +7,27 @@ class ListNode:
 
 
 class Solution:
-    def deleteDuplication(self, pHead):
-        # 用两个指针来跨过数值相等的区域
+    """
+    题目描述
 
+    在一个排序的链表中，存在重复的结点，
+    请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。
+    例如，链表1->2->3->3->4->4->5 处理后为 1->2->5
+    """
+    #　递归方式
+    def deleteDuplication(self, pHead):
         # 边界判断
         if not pHead or not pHead.next:
             return pHead
 
-        # 给链表加一个头，以防开头就有重复元素
-        result = ListNode(-1)
-        result.next = pHead
+        # 判断当前节点是否是重复节点
+        if pHead.val == pHead.next.val:
+            cur = pHead.next
+            # 找到下一个与节点数值不同的节点
+            while cur and cur.val == pHead.val:
+                cur = cur.next
+            return self.deleteDuplication(cur)
+        else:   # 当前节点不是重复节点
+            pHead.next = self.deleteDuplication(pHead.next)
+            return pHead
 
-        cur = result
-        cur1 = pHead
-        cur2 = pHead.next
-
-        while cur:
-            # cur2 一直向后直到找到第一个与cur1不相同的节点
-            while cur1.val == cur2.val:
-                cur2 = cur2.next
-            cur1 =
-
-
-
-
-
-
-        while cur1 is not None:
-            # cur2 一直向后知道找到第一个与cur1不相同的节点
-            while cur2 is not None and cur2.val == cur1.val:
-                cur2 = cur2.next
-            cur1.next = cur2
-            if cur2 is not None:
-                cur2 = cur2.next
-                cur1 = cur1.next
-            else:
-                break
-        return pHead
