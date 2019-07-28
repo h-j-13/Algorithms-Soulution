@@ -19,8 +19,9 @@ Using Java, C/C++, Python etc ....
 
 H-J-13(@`13)                                         
 z.g.13@163.com/h.j.13.new@gmail.com                 
-Harbin Institute of Technology at Weihai     
+ 
 
 [`13 Blog](http://houjie13.com/)        
-
 [`13的博客](http://www.jianshu.com/u/75156f101757)
+
+### 我们采集的只是石头，却必须时刻展望未来的大教堂。
